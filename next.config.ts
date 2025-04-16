@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   output: 'standalone',
@@ -17,10 +18,15 @@ const nextConfig = {
       {
         source: '/',
         destination: '/clients',
-        permanent: true,
+        permanent: false,
       },
     ]
   },
-}
+  trailingSlash: true,
+  images: {
+    domains: ['localhost'],
+    unoptimized: true,
+  },
+};
 
-module.exports = nextConfig
+export default nextConfig;
